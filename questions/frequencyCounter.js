@@ -1,0 +1,28 @@
+/* 
+Count the frequency of a vowels in a given string. 
+1. The function should take a string input and return an object with keys a,e,i,o,u
+2. The value corresponding to each key should have the frequency of vowels that appear 
+   in the string
+3. In case numbers are passed it shoul throw an error with message "Invalid Input"
+*/
+
+const frequencyCounter = (str) => {
+	if (typeof str === "number") {
+		throw new Error("Invalid Input");
+	} else {
+		let arr_vowel_list = "aeiouAEIOU".split("");
+		let vow = { a: 0, e: 0, i: 0, o: 0, u: 0 };
+		str.split("").forEach(function (e) {
+			if (arr_vowel_list.indexOf(e) !== -1) {
+				//count++;
+				vow[e]++;
+			}
+		});
+
+		//and now log this cout
+		return vow;
+	}
+};
+console.log(frequencyCounter("shweta"));
+
+module.exports = frequencyCounter;
